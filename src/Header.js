@@ -12,7 +12,7 @@ import HeaderOption from './HeaderOption';
 
 function Header() {
   return (
-    <div className='header'>
+    <div className="header">
       <div className="header__left">
         <img src="/linkedin.png" alt="" />
 
