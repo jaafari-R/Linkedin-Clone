@@ -71,4 +71,31 @@
   border: 1px solid #aaa;
   border-radius: 0.3em;
   background-color: white;
+  margin-top: 1em;
+  padding: 0.6em;
+}
+
+.sidebar__bottom > p {
+  font-size: 0.7em;
+  padding-bottom: 0.3em;
+}
+
+.sidebar__recentItem {
+  display: flex;
+  font-size: 0.6em;
+  color: #555;
+  padding: 0.2em;
+  margin-bottom: 0.3em;
+  border-radius: 0.4em;
+}
+
+.sidebar__recentItem:hover {
+  color: black;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.sidebar__hash {
+  margin-left: 0.2em;
+  margin-right: 0.4em;
 }
