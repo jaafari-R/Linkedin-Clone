@@ -27,3 +27,11 @@
   padding: 0.2em;
   overflow-wrap: anywhere;
 }
+
+.post__buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+  border-top: 1px solid #ccc;
+  padding-top: 1em;
+}
