@@ -4,11 +4,13 @@
   top: 0;
   z-index: 999;
   display: flex;
-  justify-content: space-around;
-  width: 100%;
+  justify-content: space-between;
+  /* width: 100%; */
   border-bottom: 0.1em solid #aaa;
   padding-top: 0.4em;
   padding-bottom: 0.4em;
+  margin-bottom: 1em;
+  padding-inline: 20%;
 }
 
 

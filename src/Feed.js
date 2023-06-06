@@ -1,6 +1,8 @@
 import React from 'react'
 import './Feed.css'
 
+import Post from './Post';
+
 import CreateIcon from '@mui/icons-material/Create';
 import ImageIcon from '@mui/icons-material/Image';
 import SmartDisplayIcon from '@mui/icons-material/SmartDisplay';
@@ -28,6 +30,9 @@ function Feed() {
           <InputOptions Icon={NewspaperIcon} title='Write Article' color='#f5987e'/>
         </div>
       </div>
+
+      {/* Posts */}
+      <Post name='Ramadan Jaafari' description='I am a description' message='I am a message'/>
     </div>
   )
 }

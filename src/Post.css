@@ -1,0 +1,29 @@
+.post {
+  background-color: white;
+  border-radius: 0.5em;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.post__header {
+  display: flex;
+  margin-bottom: 0.5em;
+}
+
+.post__info {
+  margin-left: 0.7em;
+}
+
+.post__info > h2 {
+  font-size: 1.3em;
+}
+
+.post__info > p {
+  font-size: 0.8em;
+  color: #555;
+}
+
+.post__body {
+  padding: 0.2em;
+  overflow-wrap: anywhere;
+}

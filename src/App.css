@@ -1,8 +1,8 @@
 .app {
   background-color: #f8f8f8;
-
 }
 
 .app__body {
   display: flex;
+  padding-inline: 20%;
 }
