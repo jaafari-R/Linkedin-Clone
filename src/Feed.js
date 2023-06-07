@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Feed.css'
 
 import Post from './Post';
@@ -11,15 +11,52 @@ import NewspaperIcon from '@mui/icons-material/Newspaper';
 
 import InputOptions from './InputOptions';
 
+import firebase from 'firebase/compat/app';
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from './firebase';
+
 function Feed() {
+  const [posts, setPosts] = useState([]);
+  const [input, setInput] = useState('');
+
+  useEffect(() => {
+    db.collection('posts').onSnapshot(snapshot => {
+      setPosts(
+        snapshot.docs.map(doc => (
+          {
+            id: doc.id,
+            data: doc.data()
+          }
+      )))
+    })
+  }, []);
+
+  const sendPost = e => {
+    e.preventDefault();
+
+    db.collection('posts').add({
+      name: 'Ramadan Jaafari',
+      description: 'Test',
+      message: input,
+      photoUrl: '',
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
+
+    setInput('');
+  }
+
+  const handleChange = setState => event => {
+    setState(event.target.value);
+  }
+
   return (
     <div className='feed'>
       <div className="feed__inputContainer">
         <div className="feed__input">
           <CreateIcon />
           <form>
-            <input type="text" />
-            <button type='submit'>Send</button>
+            <input value={input} onChange={handleChange(setInput)} type="text" />
+            <button onClick={sendPost} type='submit'>Send</button>
           </form>
         </div>
 
@@ -32,7 +69,17 @@ function Feed() {
       </div>
 
       {/* Posts */}
-      <Post name='Ramadan Jaafari' description='I am a description' message='I am a message'/>
+      {   
+        posts.map(({ id, data: { name, description, message, photoUrl}}) => (
+          <Post 
+            key={id}
+            name={name} 
+            description={description} 
+            message={message} 
+            photoUrl={photoUrl}/>
+        ))
+      }
+      {/* <Post name='Ramadan Jaafari' description='I am a description' message='I am a message'/> */}
     </div>
   )
 }
