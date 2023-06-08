@@ -6,7 +6,7 @@ import { login } from './features/userSlice';
 
 import { auth } from './firebase';
 
-import { Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 function Login() {
   const [name, setName] = useState('');
@@ -97,10 +97,6 @@ function Login() {
       <p>Not a member?
         <span onClick={register} className="login__register"> Register Now!</span>
       </p>
-      <Toaster
-        position="bottom-center"
-        duration="1000ms"
-      />
     </div>
   )
 }

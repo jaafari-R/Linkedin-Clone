@@ -6,6 +6,8 @@ import { selectUser, logout, login } from './features/userSlice';
 
 import { auth } from './firebase';
 
+import { Toaster } from 'react-hot-toast';
+
 import Login from './Login';
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -48,6 +50,9 @@ function App() {
             </div>
           )
       }
+      <Toaster
+        position="bottom-center"
+      />
     </div>
   );
 }

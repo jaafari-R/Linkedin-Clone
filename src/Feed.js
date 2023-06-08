@@ -17,6 +17,8 @@ import InputOptions from './InputOptions';
 import firebase from 'firebase/compat/app';
 import { db } from './firebase';
 
+import { toast } from 'react-hot-toast';
+
 function Feed() {
   const user = useSelector(selectUser);
 
@@ -40,6 +42,9 @@ function Feed() {
 
   const sendPost = e => {
     e.preventDefault();
+
+    if(input === '')
+      return toast.error('Please provide a message to post!')
 
     db.collection('posts').add({
       name: user.displayName,
