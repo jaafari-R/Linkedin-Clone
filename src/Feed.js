@@ -9,13 +9,17 @@ import SmartDisplayIcon from '@mui/icons-material/SmartDisplay';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
+
 import InputOptions from './InputOptions';
 
 import firebase from 'firebase/compat/app';
-import { doc, onSnapshot } from "firebase/firestore";
 import { db } from './firebase';
 
 function Feed() {
+  const user = useSelector(selectUser);
+
   const [posts, setPosts] = useState([]);
   const [input, setInput] = useState('');
 
@@ -38,10 +42,10 @@ function Feed() {
     e.preventDefault();
 
     db.collection('posts').add({
-      name: 'Ramadan Jaafari',
-      description: 'Test',
+      name: user.displayName,
+      description: user.email,
       message: input,
-      photoUrl: '',
+      photoUrl: user.photoUrl,
       timestamp: firebase.firestore.FieldValue.serverTimestamp()
     })
 

@@ -44,7 +44,7 @@ function Header() {
         <HeaderOption Icon={ChatIcon} title='Messages'/>
         <HeaderOption Icon={NotificationsIcon} title='Notifications'/>
 
-        <HeaderOption avatar='/linkedin.png' title='Me' />
+        <HeaderOption avatar={true} title='Me' />
 
         <span onClick={logoutApp}>
         <HeaderOption Icon={LogoutIcon} title='Signout' />
