@@ -1,5 +1,6 @@
 .sidebar {
   position: sticky;
+  top: 4.4em;
   flex: 0.2;
   text-align: center;
   height: fit-content;

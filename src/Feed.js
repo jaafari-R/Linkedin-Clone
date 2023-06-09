@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './Feed.css'
 
+import FlipMove from 'react-flip-move';
+
 import Post from './Post';
 
 import CreateIcon from '@mui/icons-material/Create';
@@ -81,17 +83,18 @@ function Feed() {
       </div>
 
       {/* Posts */}
-      {   
-        posts.map(({ id, data: { name, description, message, photoUrl}}) => (
-          <Post 
-            key={id}
-            name={name} 
-            description={description} 
-            message={message} 
-            photoUrl={photoUrl}/>
-        ))
-      }
-      {/* <Post name='Ramadan Jaafari' description='I am a description' message='I am a message'/> */}
+      <FlipMove>
+        {   
+          posts.map(({ id, data: { name, description, message, photoUrl}}) => (
+            <Post 
+              key={id}
+              name={name} 
+              description={description} 
+              message={message} 
+              photoUrl={photoUrl}/>
+          ))
+        }
+      </FlipMove>
     </div>
   )
 }
